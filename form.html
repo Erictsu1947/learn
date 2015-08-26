@@ -1,0 +1,11 @@
+<form method='POST'>
+	{{ form.hidden_tag() }}
+	{{ form.name.label } {{ form.name(id='my-text-field') }}
+	{{ form.submit() }}
+</form>
+
+or
+
+{% import "bootstrap/wtf.html" as wtf %}
+{{ wtf.quick_form(form) }}
+

@@ -35,7 +35,7 @@ def sim_distance(prefs,person1,person2):
   sum_of_squares=sum([pow(prefs[person1][item]-prefs[person2][item],2) 
                       for item in prefs[person1] if item in prefs[person2]])
 
-  return 1/(1+sum_of_squares)
+  return 1/(1+sqrt(sum_of_squares))
 
 # Returns the Pearson correlation coefficient for p1 and p2
 def sim_pearson(prefs,p1,p2):
@@ -131,7 +131,7 @@ def calculateSimilarItems(prefs,n=10):
   for item in itemPrefs:
     # Status updates for large datasets
     c+=1
-    if c%100==0: print "%d / %d" % (c,len(itemPrefs))
+    if c%100==0: print ("%d / %d" % (c,len(itemPrefs)))
     # Find the most similar items to this one
     scores=topMatches(itemPrefs,item,n=n,similarity=sim_distance)
     result[item]=scores
