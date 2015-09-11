@@ -1,0 +1,107 @@
+<!doctype html>
+    <html>
+    <head>
+    <meta charset="utf-8"/>
+    <title>CSS+JS打造的精美放大镜效果丨芯晴网页特效丨CsrCode.Cn</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <style type="text/css">
+    div, ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    }
+    #Over {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    left: 0px;
+    top: 0px;
+    }
+    .img {
+    width:90%;
+    background-color: #FFF;
+    height: 90%;
+    padding: 3px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    }
+    .content {
+    text-align: center;
+    width: 200px;
+    height:150px;
+    margin-right: auto;
+    margin-left: auto;
+    }
+    .EnlargePhoto {
+    cursor: pointer;
+    }
+    .TempContainer {
+    position: absolute;
+    z-index: 101;
+    margin-right: 0px;
+    margin-left: 0px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    }
+    </style>
+    <script type="text/javascript" src="static/js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(e) {
+    var ImgsTObj = $('.EnlargePhoto');//class=EnlargePhoto的都是需要放大的图像
+    if(ImgsTObj){
+    $.each(ImgsTObj,function(){
+    $(this).click(function(){
+    var currImg = $(this);
+    CoverLayer(1);
+    var TempContainer = $('<div class=TempContainer></div>');
+    with(TempContainer){
+    appendTo("body");
+    css('top',currImg.offset().top);
+    html('<img border=0 src=' + currImg.attr('src') + '>');
+    }
+    TempContainer.click(function(){
+    $(this).remove();
+    CoverLayer(0);
+    });
+    });
+    });
+    }
+    else{
+    return false;
+    }
+    //====== 使用/禁用蒙层效果 ========
+    function CoverLayer(tag){
+    with($('#Over')){
+    if(tag==1){
+    css('height',$(document).height());
+    css('display','block');
+    css('opacity',0.9);
+    css("background-color","#000");
+    }
+    else{
+    css('display','none');
+    }
+    }
+    }
+    });
+    </script>
+    </head>
+
+    <body>
+    <div class='content'>
+    <div class="test">
+    <h3>预览效果：</h3>
+    <img class='img EnlargePhoto' src="static/img/2015051116265259d15.jpeg">
+    <img class='img EnlargePhoto' src="static/img/20150511162701bpwee.jpeg">
+    <img class='img EnlargePhoto' src="static/img/20150515131128nldbp.jpeg">
+    </div>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}主页{% endblock %}
+{% block head %}
+    {{ super() }}
+    
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type='text/css'>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+{% endblock %}
+
+{% block navbar %}
+{{ super() }}
+
+<nav class="navbar navbar-default" role="navigation">
+   <div class="navbar-header">
+      <a class="navbar-brand" href="#">W3Cschool</a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li class="active"><a href="#">iOS</a></li>
+         <li><a href="#">SVN</a></li>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               Java 
+               <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="#">jmeter</a></li>
+               <li><a href="#">EJB</a></li>
+               <li><a href="#">Jasper Report</a></li>
+               <li class="divider"></li>
+               <li><a href="#">分离的链接</a></li>
+               <li class="divider"></li>
+               <li><a href="#">另一个分离的链接</a></li>
+            </ul>
+         </li>
+      </ul>
+   </div>
+</nav>
+{% endblock %}
+
+
+
+{% block content %}
+{{ super() }}
+<div class='container'>
+    <div class='page-header'>
+        <h1>Hello,{% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    </div>
+</div>
+{% endblock %}

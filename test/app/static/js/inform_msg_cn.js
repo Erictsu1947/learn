@@ -1,0 +1,45 @@
+var invalid_email_address="非合法Email";
+var no_username="请输入用户名";
+var password_no_match="密码不匹配";
+var no_old_password="请输入旧密码";
+var new_gallery_inform="请输入相册名";
+var delete_gallery_inform="确定删除此相册?";
+var delete_image_inform="确定删除此图片?";
+var wrong_username_or_password="用户名/密码错误";
+var upload_limit_inform="每次限制上传20张";
+var upload_failure="上传失败";
+var file_extension_limit_inform='仅可上传扩展名为 ("jpg","jpeg","png","bmp","gif") 类型的图片';
+var agree_tos_inform="上传前请勾选同意我们的使用条款.";
+var lock_succeed="相册加锁成功";
+var thanks_report="感谢您的支持,我们将尽快对该图片进行审核";
+var alertlastimage="此图为此页最后一张图,请翻页";
+var user_language="zh-cn";
+var youview_original_link="贴图代码";
+var delete_image_tag="删除此图";
+var indexoriginalimagelink_tag="查看原图";
+var about_image_tag="关于此图";
+var save_description_tag="保存";
+var cancel_description_tag="关闭";
+var photo_name_tag="照片名";
+var original_tag="原图";
+var share_image_tag="代码";
+var delete_tag="删除";
+var edit_tag="编辑";
+var select_all_image_tag="全选";
+var unselect_all_image_tag="全不选";
+var moveimage_tag="移动";
+var conform_unselect_image="未选择图片";
+var choose_action="选择操作";
+var move_image_tag="移动图片至相册";
+var photo_description_tag="描述";
+var comment_tag="评论";
+var go_back_inform="点击任意位置即可返回相册";
+var forum_code_tag="论坛贴图代码";
+var html_code_tag="HTML贴图代码";
+var IM_code_tag="即时分享链接";
+var IM_code_tag="即时分享链接";
+var register_inform="登录后才可使用此功能";
+function uploadfinish_inform(succeedupload,failureupload)
+{
+	alert("上传完毕,"+succeedupload+" 张成功上传,"+failureupload+" 张上传失败");
+}

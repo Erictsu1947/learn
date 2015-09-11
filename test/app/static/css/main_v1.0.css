@@ -1,0 +1,282 @@
+.link-group a, .link-group span {
+    /* height: 20px; */
+    line-height: 40px;
+    color: #ababab;
+    display: inline-block;
+}
+
+.p5 {
+    padding: 5px;
+}
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+hr {
+	margin-bottom: 0px;
+}
+
+
+/********** 列表页面图片控制样式begin **********/
+.thumbnails:before, .thumbnails:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.thumbnails:after {
+    clear: both;
+}
+.thumbnails:before, .thumbnails:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.thumbnails {
+    list-style: none outside none;
+    margin-left: -20px;
+    padding: 0;
+}
+
+.thumbnails li {
+    line-height: 20px;
+}
+
+.thumbnails > li {
+    margin-left: 30px;
+}
+.thumbnails > li {
+    float: left;
+    /* margin-bottom: 20px; */
+    margin-left: 20px;
+}
+.span3 {
+    width: 260px;
+}
+.span2 {
+	width: 130px;
+}
+.img_single {
+	width: 240px;
+	text-align: center;
+	height: 347px;
+	overflow: hidden;
+}
+.thumbnails img {
+	width: auto\9;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+.thumbnails img.height_min {
+	width: 100%;	
+}
+
+
+/* 图片底部浮动层 */
+div.bottombar {
+   	background: none;
+	height: 30px;
+	line-height: 20px;
+	color: black;
+	display: block;
+}
+.piclist .bottombar {
+    bottom: 0;
+    /*position: absolute;*/
+    width: 100%;
+}
+.piclist .pic:hover .bottombar {
+	display: block;
+}
+
+.bottombar .star {
+	cursor: pointer;
+}
+div.bottombar span.mstar-empty {
+	background: url("../../resource/images/star_empty.png");
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+div.bottombar span.mstar {
+	background: url("../../resource/images/star_full.png");
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+div.bottombar .meta {
+	text-align: right;
+	width: 60px;
+	height: 28px;
+	overflow: hidden;
+}
+div.bottombar .starcount {
+	line-height: 28px;
+	vertical-align: top;
+	color: pink;
+}
+/********** 列表页面图片控制样式end **********/
+
+
+/*******未找到妹子begin******/
+div.auth_box {
+	max-width: 550px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	/*background-color: #fff;*/
+	background-color: #f5f5f5;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+/*******未找到妹子begin******/
+
+
+/***************登录 begin*******************/
+.form-login {
+	margin-top: 40px;
+}
+.form-login {
+	max-width: 400px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-login input[type="text"], .form-login input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+/***************登录 end*******************/
+
+
+
+/****************详细页面用户资料卡 begin********************/
+.user-card {
+    font: 12px Helvetica,Arial,sans-serif;
+	padding: 15px 15px 5px;
+	background: #f9f9f9;
+}
+.user-card .pic {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	font-size: 0;
+}
+.user-card .info {
+	overflow: hidden;
+	zoom: 1;
+}
+.user-card ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.user-card .info li {
+	margin-bottom: 4px;
+}
+.user-card .name {
+	font-size: 14px;
+}
+.user-card .loc {
+	color: #00959e;
+}
+.user-card .home-link a:link, .user-card .home-link a:visited, .user-card .home-link a:hover, .user-card .home-link a:active {
+	color: #666;
+}
+.user-card .home-link a {
+	padding-left: 20px;
+	background: url(../../resource/images/ic_douban.png) no-repeat;
+}
+.user-card .home-link a {
+	display: inline-block;
+	zoom: 1;
+}
+.user-card .opt {
+	clear: both;
+	border-top: 1px solid #dcdcdc;
+	padding: 0 25px 10px;
+}
+
+.user-card .lnk-doumail,.user-card .add_contact,.user-card .followed {
+	display: block;
+	padding: 5px;
+	margin-top: 15px;
+	font-size: 14px
+}
+
+.user-card .lnk-doumail,.user-card .add_contact {
+	border-radius: 4px;
+	background: #00959e;
+	color: #fff;
+	text-align: center
+}
+
+.user-card .lnk-doumail:link,.user-card .lnk-doumail:visited,.user-card .lnk-doumail:hover,.user-card .lnk-doumail:focus,.user-card .lnk-doumail:active,.user-card .add_contact:link,.user-card .add_contact:visited,.user-card .add_contact:hover,.user-card .add_contact:focus,.user-card .add_contact:active {
+	background: #00959e;
+	color: #fff
+}
+
+.user-card .add_contact {
+	border: 1px solid;
+	background: #fff;
+	color: #00959e
+}
+
+.user-card .add_contact:link,.user-card .add_contact:visited,.user-card .add_contact:hover,.user-card .add_contact:focus,.user-card .add_contact:active {
+	background: #fff;
+	color: #00959e
+}
+.user-card a:visited {
+	text-decoration: none;
+}
+.user-card a:link {
+	text-decoration: none;
+}
+/****************详细页面用户资料卡 end********************/
+
+
+
+
+/*************返回顶部 begin************/
+#totop{position:fixed;bottom:40px;right:10px;z-index:999;width:71px; cursor:pointer; display:none;}
+*html #totop{position:absolute;cursor:pointer;right:10px; display:none;top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight)-112+"px")}
+#totop a{display:block;width:71px;height:75px;padding-top:48px;background:url(../../../resource/images/toTop.gif) no-repeat;text-align:center;color:#888}
+#totop a.cur{background-position:-88px 0;text-decoration:none;color:#3a9}
+/*************返回顶部 end************/
+
+
+
+.hero-unit {
+	padding: 60px;
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	color: inherit;
+	background-color: #fff;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.hero-unit h1 {
+  text-align: center;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}Upload new File {% endblock title %}
+
+<h1>Upload new File</h1>
+
+{% block page_content %}
+<div class='page_header'>
+    <h1>Hello,{% if args %}{{ args }}{% else %}Stranger{% endif %}!</h1>
+</div>
+
+<form action="" method='post' enctype='multipart/form-data'>
+    <label class='control-label'>Select file</label>
+    <input id="input-1" type='file' name='file'>
+    <input type=submit value=Upload>
+</form>
+{% endblock %}
+

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% import '_macros.html' as macros %}
+{% block head %}
+{{ super() }}
+<script src="static/js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
+<link href="static/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" >
+<link rel="stylesheet" href="static/css/bootstrap.new.theme.min.css">
+<link rel="stylesheet" href="static/css/main_v1.0.css">
+<script src="static/js/fileinput.min.js"></script>
+<script src='static/js/fileinput_locale_zh.js'></script>
+
+<script type="text/javascript" src="static/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(e) {
+    var ImgsTObj = $('.EnlargePhoto');//class=EnlargePhoto的都是需要放大的图像
+    if(ImgsTObj){
+    $.each(ImgsTObj,function(){
+    $(this).click(function(){
+    var currImg = $(this);
+    CoverLayer(1);
+    var TempContainer = $('<div class=TempContainer></div>');
+    with(TempContainer){
+    appendTo("body");
+    css('top',currImg.offset().top);
+    html('<img border=0 src=' + currImg.attr('src') + '>');
+    }
+    TempContainer.click(function(){
+    $(this).remove();
+    CoverLayer(0);
+    });
+    });
+    });
+    }
+    else{
+    return false;
+    }
+    //====== 使用/禁用蒙层效果 ========
+    function CoverLayer(tag){
+    with($('#Over')){
+    if(tag==1){
+    css('height',$(document).height());
+    css('display','block');
+    css('opacity',0.9);
+    css("background-color","#000");
+    }
+    else{
+    css('display','none');
+    }
+    }
+    }
+    });
+</script>
+{% endblock %}
+
+
+{% block navbar %}
+{{ super() }}
+<div class='navbar navbar-right'>
+<form method='POST' enctype='multipart/form-data'>
+    <label class='control-label'>Select file</label>
+    <input id="input-1" type='file' class='file' value='upload'>
+    </form>
+</div>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div id='main' class='main-container container'>
+<div class='panel panel-default'>
+<div class="panel-heading">    
+    <h3 class="panel-title">Insight</h3>
+</div>
+<div class='panel-body'>
+<ul class='thumbnails'>
+{% for file in names %}
+<li class='span3'>
+    <div class='thumbnail' style='text-align:center'>
+    <div class='img-single'>
+    <img class="img EnlargePhoto" title="快点操我" alt="操我" src="../static/img/{{ file }}">
+    </div>
+    </div>
+</li>
+{% endfor %}
+</ul>
+<div class="pagination">
+{{ macros.pagination_widget(pagination, '.index') }}
+</div>
+</div>
+
+{% endblock %}

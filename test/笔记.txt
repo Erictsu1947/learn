@@ -1,0 +1,3 @@
+config 是字典，a dict
+通过app.config,导入Flask对象中。
+app.config.from_object('config')同样有效。
