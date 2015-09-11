@@ -1,0 +1,7 @@
+请求上下文，可以使用app.test_request_context方法，创建请求上下文
+
+应用上下文，在请求处理时，如果需要会自动创建
+或者可以采用app.app_context方法
+
+存在get_x()函数来创建上下文，以及teardown_x()函数来销毁资源x
+

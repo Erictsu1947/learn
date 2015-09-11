@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    </body>
+</html><html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Content-Language" content="zh-CN">
+    
+    <style type="text/css">
+        html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, cite, em, font, img, strong, center, dl, dt, dd, ol, ul, li, fieldset, form, label { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+        a, img { border: 0 none; }
+        a { color: #333; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        input, select, img, button { vertical-align: middle; margin: 0; }
+        :focus { outline: 0; }
+        hr { border-top: 1px dashed #C0C0C0; height: 0; border-top-style: dashed; }
+        body { margin: 0 auto; font: 12px 宋体, Arial, Helvetica, sans-serif; color: #333; width: 1000px;  }
+        .float_left { float: left; }
+        .float_right { float: right; }
+        .clearfloat { clear: both; float: none; }
+        
+        #div_main { width: 540px; height:460px; margin: 0 auto;  background: url('/images/calendar/calendarbg1000.jpg') no-repeat center top; display:none;}
+        
+        #div_title { height: 70px; padding: 5px 0 0 20px; }
+        #div_title .float_left { font: 16px Arial; font-weight: bold; position: relative; }
+        #div_title .float_left div { font: 14px 宋体;color: red; position: absolute; bottom: 4px; left: 225px; width: 120px; }
+        #div_title .float_left img { margin: 3px 0 0 23px; vertical-align: -5px; }
+        #div_title .float_right{ width: 172px; padding-top: 5px; position: relative; }
+        #div_title .float_right span{ float: left; cursor: pointer; width: 80px; height: 18px; margin-top: 8px;}
+        #div_title .float_right #span_today{width: 42px; margin-right: 17px;}
+        #div_title .float_right #span_24day{width: 102px;}
+        #div_title .float_right #span_holiday{width: 62px;margin-left: 20px;}
+                    
+        .hidestyle { display: none; }
+        
+        #div_jieqilist,#div_holiday,#div_allyear { border: 1px solid #C0C0C0; overflow: auto; background-color: #FFF; position: absolute; z-index: 1000; background: url('/images/calendar/ddl_bg.png') repeat; }        
+        #div_holiday { width: 60px; right: 16px; top:35px;}
+        #div_jieqilist{width: 120px; right: 16px; top:60px;}
+        #div_jieqilist a { float: left; padding: 3px; text-align: center; cursor: pointer; width: 54px; }
+        #div_holiday a { display: block; padding: 3px; text-align: center; cursor: pointer; }
+        
+        #div_content dt { float: right; width: 120px; padding: 5px 20px 0 0; text-align: center; line-height: 16px; }
+        #div_content dt h1 { font-size: 70px; line-height: 80px; padding: 2px 0;  font-family: Arial, Helvetica, sans-serif; }
+            #div_content dt img { vertical-align:middle;margin-right:5px;}
+        #div_hl {margin: 10px 5px; height: 128px; } 
+        #div_hl h2{ font-size:14px; margin: 5px 0;}
+        #div_hl .txtStyle{ border: solid 1px #C0C0C0; width: 70px;}
+        #div_hl input { font-size: 12px; vertical-align:middle; margin: 2px 0;}  
+        
+        #div_content dt .float_left { width: 50px; }
+        #div_content dd { float: left; width: 347px; padding: 6px 0 0 28px; }
+        #div_content dd h4 { width: 47px; float: left; background-color: #E4E4E4; margin: 1px; text-align: center; font-size: 12px; padding: 5px 0; font-weight: normal; }
+        #div_content dd li { width: 47px; height: 46px; float: left; background-color: #EEE; margin: 1px; list-style-type: none; cursor: pointer; }
+        #div_content dd .hoverli { background-color: #CCC; }
+        #div_content dd li .hide_div { display: none; }
+        #div_content dd li h5 { text-align: right; font-size: 24px; padding: 1px 5px 1px 0; font-family: Arial, Helvetica, sans-serif; }
+        #div_content dd li em { font-size: 12px; text-align: center; font-style: normal; display: block; }
+        #div_content dd .silver_day h5 { color: #C0C0C0; font-weight: normal; }
+        #div_content dd .silver_day em { color: #C0C0C0; }
+        #div_content dd .weekend_day h5 { color: red; }
+        #div_content dd .weekend_day em { color: red; }
+        
+        #div_footban { padding: 0 15px 0 12px; position: relative; }
+        #div_footban span { float: left; margin: 16px 5px 0 0; _margin: 7px 5px 0 0; text-align: center; cursor: pointer; width: 30px; height: 15px; padding-top: 2px; }
+        #div_footban .monthhover { background: url('/images/calendar/ban_footmonth_hover.jpg') no-repeat center; }
+        #div_footban .ban_arrow { width: 20px; margin-right: 1px; }
+        #div_footban em { padding: 2px 0 0 5px; margin: 16px 5px 0 0; _margin: 7px 5px 0 0; width: 41px; height: 15px; font-style: normal; float: left; cursor: pointer; }
+        
+        #div_allyear { width: 440px; height: 240px; top: -225px; left: 35px; }
+        #div_allyear a { float: left; padding: 3px; text-align: center; cursor: pointer; width: 54px; }
+    </style>
+    <link type="text/css" href="/images/css/smoothness/jquery-ui.css" rel="stylesheet"><title>
+    灵匣网万年历
+</title></head>
+<body>
+    <div id="div_main" style="margin-top: 48.5px; display: block;"><div id="div_title"><div class="float_left">    1950    <img src="/images/calendar/10.jpg" alt="">    <div>庚寅年-虎</div></div><div class="float_right">    <span id="span_daycount"></span>    <span id="span_holiday"></span>    <span id="span_today"></span>    <span id="span_24day"></span>    <div id="div_jieqilist" class="hidestyle"><a title="1950|1|6">小寒</a><a title="1950|1|20">大寒</a><a title="1950|2|4">立春</a><a title="1950|2|19">雨水</a><a title="1950|3|6">惊蛰</a><a title="1950|3|21">春分</a><a title="1950|4|5">清明</a><a title="1950|4|20">谷雨</a><a title="1950|5|6">立夏</a><a title="1950|5|21">小满</a><a title="1950|6|6">芒种</a><a title="1950|6|22">夏至</a><a title="1950|7|8">小暑</a><a title="1950|7|23">大暑</a><a title="1950|8|8">立秋</a><a title="1950|8|24">处暑</a><a title="1950|9|8">白露</a><a title="1950|9|23">秋分</a><a title="1950|10|9">寒露</a><a title="1950|10|24">霜降</a><a title="1950|11|8">立冬</a><a title="1950|11|23">小雪</a><a title="1950|12|8">大雪</a><a title="1950|12|22">冬至</a>    </div>    <div id="div_holiday" class="hidestyle"><a title="1950|1|1">元旦</a><a title="1950|2|17">春节</a><a title="1950|4|5">清明节</a><a title="1950|5|1">劳动节</a><a title="1950|6|19">端午节</a><a title="1950|9|26">中秋节</a><a title="1950|10|1">国庆节</a>    </div></div><br class="clearfloat"></div><div id="div_content"><dl><dt>10/9/1950&nbsp;星期一<input type="hidden" value="庚寅年-虎"><h1>9</h1>属【虎】&nbsp;&nbsp;<span style="color:green">寒露</span><br>农历：八月廿八<br>庚寅年乙酉月丁丑日<br><div id="div_hl"><span class="float_left" style="color:red">宜：<br>祭祀<br>平治道涂<br>余事勿取<br></span><span class="float_left">忌：<br>嫁娶<br>开市<br></span><br class="clearfloat"></div><img height="22" src="/images/calendar/logo.png" width="23">lnka.cn</dt><dd><h4>MON 一</h4><h4>TUE 二</h4><h4>WED 三</h4><h4>THU 四</h4><h4>FRI 五</h4><h4 style="color:red;">SAT 六</h4><h4 style="color:red;">SUN 日</h4><br class="clearfloat"><ul><li id="li_19500925" class="silver_day"><h5>25</h5><em>十四</em></li><li id="li_19500926" class="silver_day"><h5>26</h5><em style="color:red">仲秋节</em></li><li id="li_19500927" class="silver_day"><h5>27</h5><em>十六</em></li><li id="li_19500928" class="silver_day"><h5>28</h5><em>十七</em></li><li id="li_19500929" class="silver_day"><h5>29</h5><em>十八</em></li><li id="li_19500930" class="silver_day"><h5>30</h5><em>十九</em></li><li id="li_19501001" class="weekend_day"><h5>1</h5><em style="color:blue">国庆节</em></li><li id="li_19501002"><h5>2</h5><em>廿一</em></li><li id="li_19501003"><h5>3</h5><em>廿二</em></li><li id="li_19501004"><h5>4</h5><em>廿三</em></li><li id="li_19501005"><h5>5</h5><em>廿四</em></li><li id="li_19501006"><h5>6</h5><em>廿五</em></li><li id="li_19501007" class="weekend_day"><h5>7</h5><em>廿六</em></li><li id="li_19501008" class="weekend_day"><h5>8</h5><em>廿七</em></li><li id="li_19501009"><h5>9</h5><em style="color:green">寒露</em></li><li id="li_19501010"><h5>10</h5><em>廿九</em></li><li id="li_19501011"><h5>11</h5><em style="color:green">九月</em></li><li id="li_19501012"><h5>12</h5><em>初二</em></li><li id="li_19501013"><h5>13</h5><em>初三</em></li><li id="li_19501014" class="weekend_day"><h5>14</h5><em>初四</em></li><li id="li_19501015" class="weekend_day"><h5>15</h5><em>初五</em></li><li id="li_19501016"><h5>16</h5><em>初六</em></li><li id="li_19501017"><h5>17</h5><em>初七</em></li><li id="li_19501018"><h5>18</h5><em>初八</em></li><li id="li_19501019"><h5>19</h5><em style="color:red">重阳节</em></li><li id="li_19501020"><h5>20</h5><em>初十</em></li><li id="li_19501021" class="weekend_day"><h5>21</h5><em>十一</em></li><li id="li_19501022" class="weekend_day"><h5>22</h5><em>十二</em></li><li id="li_19501023"><h5>23</h5><em>十三</em></li><li id="li_19501024"><h5>24</h5><em style="color:green">霜降</em></li><li id="li_19501025"><h5>25</h5><em>十五</em></li><li id="li_19501026"><h5>26</h5><em>十六</em></li><li id="li_19501027"><h5>27</h5><em>十七</em></li><li id="li_19501028" class="weekend_day"><h5>28</h5><em>十八</em></li><li id="li_19501029" class="weekend_day"><h5>29</h5><em>十九</em></li><li id="li_19501030"><h5>30</h5><em>二十</em></li><li id="li_19501031"><h5>31</h5><em style="color:blue">万圣节</em></li><li id="li_19501101" class="silver_day"><h5>1</h5><em>廿二</em></li><li id="li_19501102" class="silver_day"><h5>2</h5><em>廿三</em></li><li id="li_19501103" class="silver_day"><h5>3</h5><em>廿四</em></li><li id="li_19501104" class="silver_day"><h5>4</h5><em>廿五</em></li><li id="li_19501105" class="silver_day"><h5>5</h5><em>廿六</em></li></ul><br class="clearfloat"></dd></dl><br class="clearfloat"></div><div id="div_footban"><span class="ban_arrow" id="ban_backmonth"></span><em id="currentyear">1950</em><span id="ban_month1">1月</span><span id="ban_month2">2月</span><span id="ban_month3">3月</span><span id="ban_month4">4月</span><span id="ban_month5">5月</span><span id="ban_month6">6月</span><span id="ban_month7">7月</span><span id="ban_month8">8月</span><span id="ban_month9">9月</span><span id="ban_month10" class="monthhover">10月</span><span id="ban_month11">11月</span><span id="ban_month12">12月</span><span class="ban_arrow" id="ban_nextmonth"></span><br class="clearfloat">    <div id="div_allyear" class="hidestyle"><a>1900</a><a>1901</a><a>1902</a><a>1903</a><a>1904</a><a>1905</a><a>1906</a><a>1907</a><a>1908</a><a>1909</a><a>1910</a><a>1911</a><a>1912</a><a>1913</a><a>1914</a><a>1915</a><a>1916</a><a>1917</a><a>1918</a><a>1919</a><a>1920</a><a>1921</a><a>1922</a><a>1923</a><a>1924</a><a>1925</a><a>1926</a><a>1927</a><a>1928</a><a>1929</a><a>1930</a><a>1931</a><a>1932</a><a>1933</a><a>1934</a><a>1935</a><a>1936</a><a>1937</a><a>1938</a><a>1939</a><a>1940</a><a>1941</a><a>1942</a><a>1943</a><a>1944</a><a>1945</a><a>1946</a><a>1947</a><a>1948</a><a>1949</a><a>1950</a><a>1951</a><a>1952</a><a>1953</a><a>1954</a><a>1955</a><a>1956</a><a>1957</a><a>1958</a><a>1959</a><a>1960</a><a>1961</a><a>1962</a><a>1963</a><a>1964</a><a>1965</a><a>1966</a><a>1967</a><a>1968</a><a>1969</a><a>1970</a><a>1971</a><a>1972</a><a>1973</a><a>1974</a><a>1975</a><a>1976</a><a>1977</a><a>1978</a><a>1979</a><a>1980</a><a>1981</a><a>1982</a><a>1983</a><a>1984</a><a>1985</a><a>1986</a><a>1987</a><a>1988</a><a>1989</a><a>1990</a><a>1991</a><a>1992</a><a>1993</a><a>1994</a><a>1995</a><a>1996</a><a>1997</a><a>1998</a><a>1999</a><a>2000</a><a>2001</a><a>2002</a><a>2003</a><a>2004</a><a>2005</a><a>2006</a><a>2007</a><a>2008</a><a>2009</a><a>2010</a><a>2011</a><a>2012</a><a>2013</a><a>2014</a><a>2015</a><a>2016</a><a>2017</a><a>2018</a><a>2019</a><a>2020</a><a>2021</a><a>2022</a><a>2023</a><a>2024</a><a>2025</a><a>2026</a><a>2027</a><a>2028</a><a>2029</a><a>2030</a><a>2031</a><a>2032</a><a>2033</a><a>2034</a><a>2035</a><a>2036</a><a>2037</a><a>2038</a><a>2039</a><a>2040</a><a>2041</a><a>2042</a><a>2043</a><a>2044</a><a>2045</a><a>2046</a><a>2047</a><a>2048</a><a>2049</a>    </div></div></div>
+    <br class="clearfloat">    
+    <script src="/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript">
+        var today = new Date();
+        var yyyy = today.getFullYear().toString();
+        var month = today.getMonth() + 1;
+        var day = today.getDate().toString();
+        var id = yyyy + get_dd(month) + get_dd(day);
+        var current;
+        var cY = document.documentElement.clientHeight;
+        $(document).ready(function () {
+            init_title(); init_content(yyyy, month, day); init_top();
+            current = day;
+        if(current>28){current=28;}
+            $("div#div_main").css("margin-top", (cY - 460) / 2 + "px").fadeIn(500);
+        })
+
+        function init_top() {
+            var _year = $("#currentyear").html(), _month;
+            $("div#div_footban span:not('.ban_arrow')").click(function () {
+                _month = $(this).attr("id").replace("ban_month", "");
+                $.get("/ajax/getmonthcalendar2.aspx?year=" + _year + "&month=" + _month + "&day=" + current, function (data) { $("div#div_main").html(data); init_title(); init_content(_year, _month, current); init_top(); });
+            });
+
+            $("div#div_footban span#ban_backmonth").click(function () {
+                _month = $("div#div_footban span.monthhover").attr("id").replace("ban_month", "");
+                _month--;
+                if (_month == 0) { _month = 12; _year--; }
+                $.get("/ajax/getmonthcalendar2.aspx?year=" + _year + "&month=" + _month + "&day=" + current, function (data) { $("div#div_main").html(data); init_title(); init_content(_year, _month, current); init_top(); });
+            });
+
+            $("div#div_footban span#ban_nextmonth").click(function () {
+                _month = $("div#div_footban span.monthhover").attr("id").replace("ban_month", "");
+                _month++;
+                if (_month > 12) { _month = 1; _year++; }
+                $.get("/ajax/getmonthcalendar2.aspx?year=" + _year + "&month=" + _month + "&day=" + current, function (data) { $("div#div_main").html(data); init_title(); init_content(_year, _month, current); init_top(); });
+            });
+
+            $("div#div_allyear").addClass("hidestyle");
+            $("#currentyear").click(function () {
+                $("#div_allyear").toggleClass("hidestyle");
+                $("div#div_holiday,#div_jieqilist").addClass("hidestyle");
+            });
+            $("div#div_allyear a").hover(function () { $(this).css("backgroundColor", "#CCC") }, function () { $(this).css("backgroundColor", "") });
+            $("div#div_allyear a").click(function () {
+                $("div#div_holiday,div#div_allyear").hide();
+                _year = $(this).html();
+                _month = $("div#div_footban span.monthhover").attr("id").replace("ban_month", "");
+                $.get("/ajax/getmonthcalendar2.aspx?year=" + _year + "&month=" + _month + "&day=" + current, function (data) { $("div#div_main").html(data); init_title(); init_content(_year, _month, current); init_top(); });
+            });
+        }
+
+        function init_title() {
+            var _year, _month;
+            $("div#div_holiday,#div_jieqilist").addClass("hidestyle");
+            $("div#div_holiday a,#div_jieqilist a").hover(function () { $(this).css("backgroundColor", "#CCC") }, function () { $(this).css("backgroundColor", "") });
+            $("span#span_holiday").click(function () {
+                $("div#div_holiday").toggleClass("hidestyle");
+                $("div#div_allyear,#div_jieqilist").addClass("hidestyle");
+            });
+            $("span#span_24day").click(function () {
+                $("div#div_jieqilist").toggleClass("hidestyle");
+                $("div#div_allyear,#div_holiday").addClass("hidestyle");
+            });
+            $("span#span_daycount").click(function () {
+                $("div#div_hl").load("/ajax/getdaycount.aspx", function () {
+                    $("input#txtStart").datepicker({
+                        yearRange: '1901:2049',
+                        changeMonth: true,
+                        changeYear: true,
+                        dateFormat: 'yy/mm/dd'
+                    });
+                    $("input#txtEnd").datepicker({
+                        yearRange: '1901:2049',
+                        changeMonth: true,
+                        changeYear: true,
+                        dateFormat: 'yy/mm/dd'
+                    });
+                    $("input#btnCount").click(function () {
+                        var daynum = "";
+                        if ($("input#txtStart").val() != '' && $("input#txtEnd").val() != '') {
+                            daynum = GetTime((Date.parse(Swith($("input#txtEnd").val())) - Date.parse(Swith($("input#txtStart").val()))));
+                            $("input#txtNum").val(daynum).css("color", "red");
+                        }
+                        else if ($("input#txtStart").val() != '' && $("input#txtNum").val() != '') {
+                            daynum = AddDays(Date.parse(Swith($("input#txtStart").val())), $("input#txtNum").val().replace("天", ""));
+                            $("input#txtEnd").val(daynum).css("color", "red");
+                        }
+                        else if ($("input#txtNum").val() != '' && $("input#txtEnd").val() != '') {
+                            daynum = AddDays(Date.parse(Swith($("input#txtEnd").val())), $("input#txtNum").val().replace("天", ""));
+                            $("input#txtStart").val(daynum).css("color", "red");
+                        }
+                    })
+                });
+            });
+            $("div#div_holiday a,div#div_jieqilist a").click(function () {
+                $("div#div_holiday,div#div_allyear,div#div_jieqilist").hide();
+                var arr = $(this).attr("title").split('|');
+                $.get("/ajax/getmonthcalendar2.aspx?year=" + arr[0] + "&month=" + arr[1] + "&day=" + current, function (data) { $("div#div_main").html(data); init_title(); init_content(arr[0], arr[1], arr[2]); init_top(); current = arr[2]; if(current>28){current=28;}});
+            });
+            $("span#span_today").click(function () {
+                $.get("/ajax/getmonthcalendar2.aspx?year=" + yyyy + "&month=" + month + "&day=" + current, function (data) { $("div#div_main").html(data); init_title(); init_content(yyyy, month, day); init_top(); current = day; if(current>28){current=28;}});
+            });
+        }
+
+        function init_content(_year, _month, _day) {
+            var holidays = ["20140101", "20140131", "20140201", "20140202", "20140203", "20140204", "20140205", "20140206", "20140405", "20140406", "20140407", "20140501", "20140502", "20140503", "20140531", "20140601", "20140602", "20140906", "20140907", "20140908", "20141001", "20141002", "20141003", "20141004", "20141005", "20141006", "20141007"];
+            var workonweeken = ["20140126", "20140208", "20140504", "20140928", "20141011"];
+            $.each(holidays, function (m) { $("li#li_" + this).css("background-image", "url(/images/calendar/holiday_bg.png)") });
+            $.each(workonweeken, function (m) { $("li#li_" + this).css("background-image", "url(/images/calendar/work_bg.png)") });
+            $("li#li_" + id.toString()).css("background-image", "url(/images/calendar/today_bg.png)");
+            $("div#div_content dd li").click(function () {
+                current = $("h5", this).html();if(current>28){current=28;}
+                $.get("/ajax/getcalendarmonthrightdetail.aspx?dayId=" + $(this).attr("id").replace("li_", ""), function (data) {
+                    $("#div_content dt").html(data);
+                    $("#div_title .float_left div").html($("div#div_content dt input").val());
+                });
+                $(this).addClass("hoverli").siblings("li").removeClass("hoverli");
+            });
+            $("#div_content dt").load("/ajax/getcalendarmonthrightdetail.aspx?year=" + _year + "&month=" + _month + "&day=" + _day, function (data) { $(this).html(data); });
+        }
+
+        function get_dd(dd) {
+            if (dd > 9) { return dd; }
+            else { return "0" + dd; }
+        }
+
+        function Swith(strdate) {
+            var strYear = strdate.substring(0, 4);
+            var strMonth = strdate.substring(5, 7);
+            var strDay = strdate.substring(8, 10);
+            return new Date(strYear, strMonth, strDay);
+        }
+
+        function GetTime(dateM) {
+            var MinMilli = 1000 * 60;         // 初始化变量。
+            var HrMilli = MinMilli * 60;
+            var DyMilli = HrMilli * 24;
+            var s = Math.round(dateM / DyMilli) + "天";
+            return (s);                        // 返回结果。
+        }
+
+        function AddDays(date, days) {
+            var date1 = date.valueOf();
+            var date2 = date1 + days * 60 * 60 * 24 * 1000;
+            date2 = new Date(date2);
+            var _year = date2.getFullYear();
+            var _month = date2.getMonth();
+            var _day = date2.getDate();
+            return _year + "/" + get_dd(_month) + "/" + get_dd(_day);
+        }
+    </script>
+
+
+</body></html>

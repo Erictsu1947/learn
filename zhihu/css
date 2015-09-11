@@ -1,0 +1,38 @@
+css
+
+css以style作为识别簇"<style type='text/css'>"
+
+背景颜色
+<html>
+<head>
+<style type='text/css'>
+body {background-color:yellow}颜色名似乎只有12种
+h1 {background-color:#00ff00}绿色
+h2 {background-color:transparent}透明的，和父类相同
+p {background-color:rgb(250,0,255)}
+p.no2{background-color:gray;padding:20px;}
+</style>
+</head>
+<body>
+
+<h1>这是标题 1</h1>
+<h2>这是标题 2</h2>
+<p>这是段落</p>
+<p class="no2">这个段落设置了内边距。</p>
+</body>
+</html>
+
+
+文本颜色
+<style type='text/css'>
+span.highlight
+{
+    background-color:yellow
+}
+</style>
+
+body内文本
+<p>
+<span class='highlight'>这个是文本。</span>
+</p>
+
