@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Eric的主页{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>很高兴你来到这里 {% if current_user.is_authenticated() %}{{ current_user.username }}{% else %}朋友{% endif %}!</h1>
+    <h2>我的名字是曲强，一个半路出家的程序员，懂些python，懂些web开发，这是我尝试的第一个个人网站，欢迎你的到来，你可以发邮件给我：erictsu_1947@163.com</h2>
+</div>
+<div>
+    {% if current_user.can(Permission.WRITE_ARTICLES) %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+</div>
+<div class="post-tabs">
+    <ul class="nav nav-tabs">
+        <li{% if not show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_all') }}">All</a></li>
+        {% if current_user.is_authenticated() %}
+        <li{% if show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_followed') }}">Followers</a></li>
+        {% endif %}
+    </ul>
+    {% include '_posts.html' %}
+</div>
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.index') }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>Eric的主页</title>
+<meta charset="utf-8">
+<meta name = "format-detection" content = "telephone=no" />
+<link rel="icon" href="{{ url_for('static',filename="images/favicon.ico") }}">
+<link rel="shortcut icon" href="{{ url_for('static',filename="images/favicon.ico") }}"/>
+<link rel="stylesheet" href="{{ url_for('static',filename="css/animation.css") }}">
+<link rel="stylesheet" href="{{ url_for('static',filename="css/camera.css") }}">
+<link rel="stylesheet" href="{{ url_for('static',filename="css/contact-form.css") }}">
+<link rel="stylesheet" href="{{ url_for('static',filename="css/touchTouch.css") }}">
+<link rel="stylesheet" href="{{ url_for('static',filename="css/style.css") }}">
+<script src="{{ url_for('static',filename="js/jquery.js") }}"></script>
+<script src="{{ url_for('static',filename="js/jquery-migrate-1.1.1.js") }}"></script>
+<script src="{{ url_for('static',filename="js/jquery.easing.1.3.js") }}"></script>
+<script src="{{ url_for('static',filename="js/script.js") }}"></script>
+<script src="{{ url_for('static',filename="js/jquery.ui.totop.js") }}"></script>
+<script src="{{ url_for('static',filename="js/touchTouch.jquery.js") }}"></script>
+<script src="{{ url_for('static',filename="js/isotope.pkgd.js") }}"></script>
+<script src="{{ url_for('static',filename="js/TMForm.js") }}"></script>
+<script src="{{ url_for('static',filename="js/modal.js") }}"></script>
+<script src="{{ url_for('static',filename="js/camera.js") }}"></script>
+<!--[if (gt IE 9)|!(IE)]><!-->
+<script src="{{ url_for('static',filename="js/jquery.mobile.customized.min.js") }}"></script>
+<!--<![endif]-->
+<script>
+ $(window).load(function(){
+  $().UItoTop({ easingType: 'easeOutQuart' });
+  $('.gallery .gall_item').touchTouch();
+ });
+ $(document).ready(function(){
+     jQuery('#camera_wrap').camera({
+      loader: false,
+      pagination: true ,
+      minHeight: '500',
+      thumbnails: false,
+      height: '44.42708333333333%',
+      caption: true,
+      navigation: false,
+      fx: 'mosaic'
+    });
+    $('.gallery .gall-item').touchTouch();
+  });
+</script>
+<!--[if lt IE 8]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body>
+<div class="texture">
+<!--==============================
+              header
+=================================-->
+<header id="home" class="page">
+  <div class="navigation single-page-nav">
+    <div class="container_12">
+      <div class="grid_12">
+        <h1 class="logo">
+          <a href="home.html">Eric tsu</a>
+        </h1>
+        <nav>
+          <ul>
+           <li><a href="#home" class="current">主页</a></li>
+           <li><a href="#portfolio">项目展示</a></li>
+           <li><a href="#skills">IT技能</a></li>
+           <li><a href="#experience">工作经历</a></li>
+           <li><a href="#contacts">联系我</a></li>
+         </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div id="camera_wrap">
+    <div data-src="{{ url_for('static',filename="images/slide-1.jpg") }}">
+      <div class="caption fadeIn">Your Photographer <span class="bull"></span> Coder  <span class="bull"></span> Designer</div>
+    </div>
+    <div data-src="{{ url_for('static',filename="images/slide-2.jpg") }}">
+      <div class="caption fadeIn">Impressive Designs, Suitable for Cool Projects</div>
+    </div>
+    <div data-src="{{ url_for('static',filename="images/slide-3.jpg") }}">
+      <div class="caption fadeIn">Designs that Work for Your Benefits</div>
+    </div>
+  </div>
+</header>
+<!--=====================
+          Content
+======================-->
+<section class="content">
+  <div class="ic"></div>
+  <div class="pad-1">
+    <div class="container_12">
+      <div class="grid_12">
+        <h2>关于我
+          <span>有关我自己的简单介绍</span>
+        </h2>
+        <p class="offset__1"><span>法医出身，自学编程，技术主导，业务上精益求精,如果您有相关的工作机会，请通过页面中的资料联系我</span></p>
+        <img src="{{ url_for('static',filename="images/IMG_6514.jpg") }}" alt="" class="fleft">
+        <div class="extra_wrapper">
+          <div class="text-1">
+            曲 强
+          </div>
+          <div class="text-2 color1">
+            <a href="#">设计师</a> &bull;
+            <a href="#">攻城狮</a> &bull;
+            <a href="#">产品经理</a>
+          </div>
+          <p>掌握python及标准库，掌握flask的快速开发框架，对tornado类的并发式框架有所了解，熟练使用nginx，uwsgi等web服务器端工具</p>
+          <p>常用bootstrap为主的前端框架，熟练使用js，能够熟练使用jQuery</p>
+          <p>熟练使用mysql，对mysql性能优化有一定了解</p>
+
+          <p>您可以通过以下的内容了解我的<a rel="nofollow" href="#" class="color1">个人资料</a>.  </p>
+          <p>您可以找到相同的项目在我的<a rel="nofollow" href="https://github.com/Erictsu1947" class="color1">github主页</a></p>
+          <br>
+
+          <a href="{{ url_for('static',filename="python.pdf") }}" class="btn">下 载 简 历</a>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<section id="portfolio" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2 class="color2">个人项目</h2>
+      <div id="filters" class="button-group">
+        <a href="#" class="btn is-checked" data-filter="*">展示全部</a>
+        <a href="#" class="btn" data-filter=".ill">网站</a>
+        <a href="#" class="btn" data-filter=".photo">照片</a>
+        <a href="#" class="btn" data-filter=".design">设计</a>
+      </div>
+      <div class="el gallery" id="isotope">
+        <div class="element design">
+          <div>
+            <a href="{{ url_for('static',filename="images/big1.jpg") }}" class="gall-item">
+            <img src="{{ url_for('static',filename="images/gal_img1.jpg") }}" alt=""><span></span></a>
+        </div>
+        </div>
+        <div class="element photo">
+          <div>
+            <a href="{{ url_for('static',filename="images/big2.jpg") }}" class="gall-item">
+            <img src="{{ url_for('static',filename="images/gal_img2.jpg") }}" alt=""><span></span></a>
+          </div>
+        </div>
+        <div class="element  photo">
+          <div>
+            <a href="{{ url_for('static',filename="images/big3.jpg") }}" class="gall-item"><img src="{{ url_for('static',filename="images/gal_img3.jpg") }}" alt=""><span></span></a>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="element ill">
+          <div>
+            <a href="{{ url_for('static',filename="images/big4.jpg") }}" class="gall-item"><img src="{{ url_for('static',filename="images/gal_img4.jpg") }}" alt=""><span></span></a>
+          </div>
+        </div>
+        <div class="element ill">
+          <div>
+            <a href="{{ url_for('static',filename="images/big5.jpg") }}" class="gall-item"><img src="{{ url_for('static',filename="images/gal_img5.jpg") }}" alt=""><span></span></a>
+          </div>
+        </div>
+        <div class="element design">
+          <div>
+            <a href="{{ url_for('static',filename="images/big6.jpg") }}" class="gall-item"><img src="{{ url_for('static',filename="images/gal_img6.jpg") }}" alt=""><span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
+<section id="skills" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2>I T 技能</h2>
+    </div>
+    <div class="grid_3">
+     <div style="clear:both"></div>
+        <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="80" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">PYTHON</a></div>
+    </div>
+    <div class="grid_3">
+      <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="70" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">FLASK</a></div>
+    </div>
+    <div class="grid_3">
+      <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="75" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">HTML5/CSS3</a></div>
+    </div>
+    <div class="grid_3">
+      <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="70" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">MYSQL</a></div>
+    </div>
+    <div class="grid_3">
+      <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="60" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">TCP/IP</a></div>
+    </div>
+    <div class="grid_3">
+      <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="60" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">uWSGI</a></div>
+    </div>
+    <div class="grid_3">
+      <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="50" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">MemCached</a></div>
+    </div>
+    <div class="grid_3">
+      <div class="circle">
+          <input class="knob" readOnly=True data-angleOffset=0 value="65" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
+        </div>
+      <div class="text-3"><a href="#">Nginx</a></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
+<section id="experience" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2>工作经验</h2>
+      <div class="block-1">
+        <div class="grid_4 alpha">
+          <div class="block-1__left">
+            <h3>2015 - 至今</h3>
+            <time  datetime="2014-01-01" class="text-2">JULY <span>NOW</span></time>
+            <div class="ta__right">
+              <div class="text-2 color1">自由职业</div>
+              网站外包项目
+            </div>
+          </div>
+        </div>
+        <div class="grid_8 omega">
+          <div class="block-2__right">
+            <h3>工作描述</h3>
+            <div class="text-2">网站设计</div>
+            <p>沟通客户需求，完善业务逻辑，设计用户界面，联系可用资源推进项目落地 </p>
+            在客户内部部门尚未完善前维护网站，并进行相关功能迭代
+          </div>
+        </div>
+      </div>
+      <div class="block-1">
+        <div class="grid_4 alpha">
+          <div class="block-1__left">
+            <h3>2014- 2015</h3>
+            <time  datetime="2014-01-01" class="text-2">April <span>JUNE</span></time>
+            <div class="ta__right">
+              <div class="text-2 color1">苏州大学司法鉴定所</div>
+              在苏州市司法鉴定所进行法医专业实习
+            </div>
+          </div>
+        </div>
+        <div class="grid_8 omega">
+          <div class="block-2__right">
+            <h3>工作描述</h3>
+            <div class="text-2">法医</div>
+            <p>在各科室轮转，实践法医学专业知识及技能</p>
+            完成上级布置的各项任务，在工作中锻炼自己相关能力
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
+<section id="contacts" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2>取得联系</h2>
+    </div>
+    <div class="grid_6">
+      <form id="contact-form">
+          <div class="contact-form-loader"></div>
+          <fieldset>
+            <label class="name">
+              <input type="text" name="name" placeholder="您的名字：" value="" data-constraints="@Required @JustLetters"  />
+              <span class="empty-message">*This field is required.</span>
+              <span class="error-message">*This is not a valid name.</span>
+            </label>
+            <label class="email">
+              <input type="text" name="email" placeholder="E-mail：" value="" data-constraints="@Required @Email" />
+              <span class="empty-message">*This field is required.</span>
+              <span class="error-message">*This is not a valid email.</span>
+            </label>
+            <label class="phone">
+              <input type="text" name="phone" placeholder="电话：" value="" data-constraints="@Required @JustNumbers" />
+              <span class="empty-message">*This field is required.</span>
+              <span class="error-message">*This is not a valid phone.</span>
+            </label>
+            <label class="message">
+              <textarea name="message" placeholder="您想对我说些什么？" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+              <span class="empty-message">*This field is required.</span>
+              <span class="error-message">*The message is too short.</span>
+            </label>
+            <div>
+              <a href="#" class="btn" data-type="submit">submit </a>
+            </div>
+          </fieldset>
+          <div class="modal fade response-message">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                  You message has been sent! We will be in touch soon.
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="grid_6">
+        <p><a href="#" rel="nofollow" class="color1"></a></p>
+        <p><a href="#" rel="nofollow" class="color1"></a><br><br></p>
+        <address>
+        我现在正在<br>
+        <strong>上海市 徐汇区</strong><br>
+        宜山路地铁站附近<br>
+        </address>
+
+        <address>
+        您可以通过以下方式联系我<br>
+        <strong>电话：</strong>189 1675 1191<br>
+        <strong>E-mail：</strong> <a href="mailto:erictsu_1947@163.com">erictsu_1947@163.com</a>
+        </address>
+      </div>
+    <div class="clear"></div>
+  </div>
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="social-icons">
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-google-plus"></a>
+        <a href="#" class="fa fa-pinterest"></a>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
+</section>
+<!--==============================
+              footer
+=================================-->
+</div>
+<footer id="footer">
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="copyright">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank"></a></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</footer>
+<a href="#" id="toTop" class="fa fa-chevron-up"></a>
+<script src="{{ url_for('static',filename="js/jquery.singlePageNav.min.js") }}" ></script>
+<script>
+  // Prevent console.log from generating errors in IE for the purposes of the demo
+  if ( ! window.console ) console = { log: function(){} };
+  // The actual plugin
+  $('.single-page-nav').singlePageNav({
+      offset: $('.single-page-nav').outerHeight(),
+      filter: ':not(.external)',
+      updateHash: true,
+      beforeStart: function() {
+          console.log('begin scrolling');
+      },
+      onComplete: function() {
+          console.log('done scrolling');
+      }
+  });
+</script>
+<script type="text/javascript">
+          google_api_map_init();
+          function google_api_map_init(){
+            var map;
+            var coordData = new google.maps.LatLng(parseFloat(40.646197), parseFloat(-73.9724068,14));
+            var styleArray = [
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#193341"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2c5a71"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#29768a"
+            },
+            {
+                "lightness": -37
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#406d80"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#406d80"
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#3e606f"
+            },
+            {
+                "weight": 2
+            },
+            {
+                "gamma": 0.84
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "weight": 0.6
+            },
+            {
+                "color": "#1a3541"
+            }
+        ]
+    },
+    {
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2c5a71"
+            }
+        ]
+    }
+]
+            function initialize() {
+              var mapOptions = {
+                zoom: 13,
+                center: coordData,
+                scrollwheel: false,
+                styles: styleArray
+              }
+              var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            google.maps.event.addDomListener(window, 'resize', function() {
+              map.setCenter(coordData);
+              var center = map.getCenter();
+            });
+          }
+            google.maps.event.addDomListener(window, "load", initialize);
+          }
+      </script>
+              <!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
+      <script src="{{ url_for('static',filename="js/jquery.knob.js") }}" ></script>
+<script>
+  $(function($) {
+    $(".knob").knob({
+        change : function (value) {
+            //console.log("change : " + value);
+        },
+        release : function (value) {
+            //console.log(this.$.attr('value'));
+            console.log("release : " + value);
+        },
+        cancel : function () {
+            console.log("cancel : ", this);
+        },
+        /*format : function (value) {
+            return value + '%';
+        },*/
+        draw : function () {
+            // "tron" case
+            if(this.$.data('skin') == 'tron') {
+                this.cursorExt = 0.3;
+                var a = this.arc(this.cv)  // Arc
+                    , pa                   // Previous arc
+                    , r = 1;
+                this.g.lineWidth = this.lineWidth;
+                if (this.o.displayPrevious) {
+                    pa = this.arc(this.v);
+                    this.g.beginPath();
+                    this.g.strokeStyle = this.pColor;
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                    this.g.stroke();
+                }
+                this.g.beginPath();
+                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                this.g.stroke();
+                this.g.lineWidth = 2;
+                this.g.beginPath();
+                this.g.strokeStyle = this.o.fgColor;
+                this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                this.g.stroke();
+                return false;
+            }
+        }
+    });
+    // Example of infinite knob, iPod click wheel
+    var v, up=0,down=0,i=0
+        ,$idir = $("div.idir")
+        ,$ival = $("div.ival")
+        ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+        ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+    $("input.infinite").knob(
+                        {
+                        min : 0
+                        , max : 20
+                        , stopper : false
+                        , change : function () {
+                                        if(v > this.cv){
+                                            if(up){
+                                                decr();
+                                                up=0;
+                                            }else{up=1;down=0;}
+                                        } else {
+                                            if(v < this.cv){
+                                                if(down){
+                                                    incr();
+                                                    down=0;
+                                                }else{down=1;up=0;}
+                                            }
+                                        }
+                                        v = this.cv;
+                                    }
+                        });
+    });
+</script>
+<script src="{{ url_for('static',filename="js/isotop_ini.js") }}" ></script>
+</body>
+</html>
