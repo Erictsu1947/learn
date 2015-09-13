@@ -16,11 +16,11 @@ class Config:
     MAIL_PORT = 994
     MAIL_USE_TLS = True
     MAIL_USE_SSL = True
-    MAIL_USERNAME = 'erictsu_1947@163.com'
-    MAIL_PASSWORD = 'dyfweinkadzzyarj'
+    MAIL_USERNAME = 'youremail'
+    MAIL_PASSWORD = 'youremailpassword'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
-    FLASKY_MAIL_SENDER = 'erictsu_1947@163.com'
-    FLASKY_ADMIN = 'erictsu_1947@163.com'
+    FLASKY_MAIL_SENDER = 'yoruemail'
+    FLASKY_ADMIN = 'youremail'
     FLASKY_POSTS_PER_PAGE = 20
     FLASKY_FOLLOWERS_PER_PAGE = 50
     FLASKY_COMMENTS_PER_PAGE = 30
